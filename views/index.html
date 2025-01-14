@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Code Wars</title>
+        <meta name="KEYWORDS" content="CodeWars, Code Wars, UPLB COSS, Computer Science Week, UPLB Computer Science Society, Programming Contest Program" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/cwars.css" type="text/css" />
+    </head>
+
+    <body>
+
+        <div id="center" class="css3-windows-7">
+
+            <div id="login_div" class="window">
+                <h2 class="window_title"><button></button>Welcome to Code Wars</h2>
+                <div class="window_content">
+                    <p>
+                        <strong>Code Wars</strong> is an annual programming contest held by the most prestigious consortium of
+                        <br />
+                        Computer Science students of the University of the Philippines, Los Banos, The UPLB Computer Science Society, along with the week long celebration of Computer Science.
+                    </p>
+                    <form action="login" method="POST" onsubmit="return login(this);">
+                        <input type="text" class="inputText" name="username" id="username" placeholder="Username" required="required"/>
+                        <input type="password" class="inputText" name="password" id="password" placeholder="Password" required="required"/>
+                        <br />
+                        <input type="submit" id="loginButton" value="Join the War!"/>
+                    </form>
+                </div>
+            </div>
+
+            <div id="ads_div" class="window">
+                <h2 class="window_title"><button></button>Ads</h2>
+                <div class="window_content">
+                    <table>
+                        <tr>
+                            <th><!-- <img src="#" alt="Sponsor" width="225px" /> -->
+                                <h3>Major Sponsors</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/lifelinks.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/migo.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/oocl.jpg" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/openit.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/whitewidget.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><!-- <img src="#" alt="Sponsor" width="225px" /> -->
+                                <h3>Official Sponsors</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/amihan.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/densoten.PNG" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/ecomparemo.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/nokia.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/ob.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/cebuana.jpg" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../images/samsung.png" style="width:270px;height:250px;">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="file_sender_div" class="window">
+                <h2 class="window_title"><button></button>File Sender</h2>
+                <div class="window_content">
+                    <table>
+                        <tr>
+                            <th>
+                                <div id="team_image"><img src="images/group.png" width="100px" />
+                                </div>
+                            </th>
+                            <td rowspan="3" id="lb">
+                                <table id="files_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Problem</th>
+                                            <th>Status</th>
+                                            <th>Evaluation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="data-username"></th>
+                        </tr>
+                        <tr>
+                            <td width="30%">
+                                <form action="submit" method="post" onsubmit="return upload_file();" id="uploadForm">
+                                    <table id="team_left">
+                                        <tr>
+                                            <td>
+                                                <select name="problemNo" id="problems"></select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input name="myfile" type="file" id="file" onchange="set_filename(this);"/>
+                                                <input type="button" onclick="$('#file').click();" value="SELECT FILE" id="sudo-file" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" name="submitBtn" value="UPLOAD" id="upload" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p id="result"></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="file_stash_div" class="window">
+                <h2 class="window_title"><button></button>CodeWars | Judge</h2>
+                <div class="window_content">
+
+                    <table id="stash_table">
+                        <thead>
+                            <tr>
+                                <th>Problem ID</th>
+                                <th>Team</th>
+                                <th>Status</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stash_body">
+                        </tbody>
+                    </table>
+
+                    <iframe id="code_iframe"></iframe>
+
+                    <select id="file_eval">
+                        <option value="Compile Error">Compile Error</option>
+                        <option value="Syntax Error">Syntax Error</option>
+                        <option value="Wrong Output">Wrong Output</option>
+                        <option value="Wrong Implementation">Wrong Implementation</option>
+                        <option value="Correct">Correct</option>
+                    </select>
+
+                    <button onclick="evaluateFile();" id="submitButton" disabled="disabled">SUBMIT</button>
+                </div>
+            </div>
+
+            <div id="account_manager_div" class="window">
+                <h2 class="window_title"><button></button>Manage Account</h2>
+                <div class="window_content">
+                    <table>
+                        <td>
+                            <form onsubmit="return validate(this);" action="api/user/create" method="POST">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <label for="username2">Username</label>
+                                        </th>
+                                        <td>
+                                            <input type="text" name="username" id="username2" required="required" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="password2">Password</label>
+                                        </th>
+                                        <td>
+                                            <input type="password" name="password" id="password2" required="required" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="cpassword">Confirm Password</label>
+                                        </th>
+                                        <td>
+                                            <input type="password" name="cpassword" id="cpassword" required="required" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="type">Type</label>
+                                        </th>
+                                        <td>
+                                            <select name="type">
+                                                <option value="team">Team</option>
+                                                <option value="judge">Judge</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">
+                                            <input type="submit" value="Create" />
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                            <form onsubmit="return validate2(this);" action="api/user/delete" method="POST">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <label for="username3">Username</label>
+                                        </th>
+                                        <td>
+                                            <select name="username" id="username3" class="users_list">
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">
+                                            <input type="submit" value="Delete" />
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                            <form onsubmit="return validate3(this);" action="api/user/change_password" method="POST">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <label for="username4">Username</label>
+                                        </th>
+                                        <td>
+                                            <select name="username" id="username4" class="users_list">
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="newPassword">New Password</label>
+                                        </th>
+                                        <td>
+                                            <input type="password" id="newPassword" required="required" name="password" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">
+                                            <input type="submit" value="Change Password" />
+                                        </th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                        <td>
+                            <table id="score_table">
+                                <tr>
+                                    <td colspan="3">
+                                        <blockquote>*Teams not listed here have no points yet.</blockquote>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Team Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="footer">
+            <div id="footer_div">
+                <div id="startbar">
+                    <div id="win">
+                        <div id="menu">
+                            <div class="left-menu">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft foldr"></div>My Documents</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft foldr"></div>Your Documents</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft foldr"></div>Our Documents</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft mw"></div>Microsoft Office Word 2007</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft op">O</div>Opera Web Browser</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft ie">e</div>Internet Explorer</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft np"></div>Notepad</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="fleft ai">Fl</div>Adobe Fl</a>
+                                    </li>
+                                    <li class="all-prog"><a href="#">All Programs</a>
+                                    </li>
+                                </ul>
+                                <form id="search" action="" name="prikitiw">
+                                    <input type="text" placeholder="Search programs and files" />
+                                </form>
+                            </div>
+                            <!-- leftmenu -->
+
+                            <div class="right-menu">
+                                <ul>
+                                    <li><a href="#">Master</a>
+                                    </li>
+                                    <li><a href="#">Documents</a>
+                                    </li>
+                                    <li><a href="#">Pictures</a>
+                                    </li>
+                                    <li><a href="#">Music</a>
+                                    </li>
+                                    <li style="border-top:1px solid rgba(255,255,255,0.1);padding-top:2px;"><a href="#">Games</a>
+                                    </li>
+                                    <li style="border-bottom:1px solid rgba(255,255,255,0.1);padding-top:5px;margin-bottom:2px;"><a href="#">Computer</a>
+                                    </li>
+                                    <li><a href="#">Control Panel</a>
+                                    </li>
+                                    <li><a href="#">Device and Printer</a>
+                                    </li>
+                                    <li><a href="#">Default Programs</a>
+                                    </li>
+                                    <li><a href="#">Help and Support</a>
+                                    </li>
+                                </ul>
+                                <div class="shutdown">
+                                    <div class="lf" id="logoutButton">Logout</div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="kontener">
+                                    <div class="admin"><img src="images/s1.png" width="48px" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- rightmenu -->
+                            <div class="clear"></div>
+                        </div>
+                        <!-- menu -->
+
+                        <div id="cont-win" title="Start">
+                            <img src="images/logo.png">
+                        </div>
+
+                    </div>
+                    <!-- win -->
+
+                    <div id="list">
+                        <div class="clear"></div>
+                    </div>
+                    <!-- opened pilled -->
+
+                    <div id="fright">
+                        <div class="plus">
+                            <div class="screensht">
+                                <div class="grup">
+                                    <a href="https://github.com/ravenjohn" target="_blank">Lagrimas, Raven John M. Copyright 2016</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- plus -->
+                        <div class="connection"></div>
+                        <div class="speaker"></div>
+                        <div class="jam">
+                            <span id="time"></span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/cwars.js"></script>
+        <script type="text/javascript" src="js/ui.js"></script>
+        <script type="text/javascript" src="socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="js/socket.js"></script>
+    </body>
+
+</html>
